@@ -15,6 +15,7 @@ The model we use is Conditional Wasserstein GAN with Gradient Penalty + Perceptu
 - NVIDIA GPU + CUDA CuDNN (CPU untested, feedback appreciated)
 - Pytorch
 
+
 Download weights from [Google Drive](https://drive.google.com/file/d/1liKzdjMRHZ-i5MWhC72EL7UZLNPj5_8Y/view?usp=sharing) . Note that during the inference you need to keep only Generator weights.
 
 Put the weights into 
@@ -24,6 +25,7 @@ Put the weights into
 To test a model put your blurry images into a folder and run:
 ```bash
 python test.py --dataroot /.path_to_your_data --model test --dataset_mode single --learn_residual
+python test.py --dataroot D:\A00dachuang\DeblurGAN --model test --dataset_mode single --learn_residual
 ```
 ## Data
 Download dataset for Object Detection benchmark from [Google Drive](https://drive.google.com/file/d/1CPMBmRj-jBDO2ax4CxkBs9iczIFrs8VA/view?usp=sharing)
@@ -32,7 +34,7 @@ Download dataset for Object Detection benchmark from [Google Drive](https://driv
 
 If you want to train the model on your data run the following command to create image pairs:
 ```bash
-python datasets/combine_A_and_B.py --fold_A /path/to/data/A --fold_B /path/to/data/B --fold_AB /path/to/data
+python datasets/combine_A_and_B.py --fold_A D:\A00dachuang\blurred_sharp\blurred_sharp\blurred --fold_B D:\A00dachuang\blurred_sharp\blurred_sharp\sharp --fold_AB D:\A00dachuang\DeblurGAN\mydata
 ```
 And then the following command to train the model
 
